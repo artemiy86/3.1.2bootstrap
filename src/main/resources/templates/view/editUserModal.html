@@ -1,0 +1,57 @@
+<div class="modal fade" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="editUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editUserModalTitle">Edit user</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="post" th:action="@{/admin/edit}">
+                <div class="modal-body">
+                    <div class="form-group mb-2 text-center">
+                        <label for="id" class="col-form-label col-form-label-lg pt-0 pb-0">ID</label>
+                        <input class="form-control" type="text" readonly th:field="${user.id}" id="id"/>
+                    </div>
+                    <div class="form-group mb-2 text-center">
+                        <label for="name" class="col-form-label col-form-label-lg pt-0 pb-0">First name</label>
+                        <input class="form-control" type="text" th:field="${user.name}" id="name" />
+                    </div>
+                    <div class="form-group mb-2 text-center">
+                        <label for="surname" class="col-form-label col-form-label-lg pt-0 pb-0">Last name</label>
+                        <input class="form-control" type="text" th:field="${user.surname}" id="surname" />
+                    </div>
+                    <div class="form-group mb-2 text-center">
+                        <label for="age" class="col-form-label col-form-label-lg pt-0 pb-0">Age</label>
+                        <input class="form-control" type="text" th:field="${user.age}" id="age" />
+                    </div>
+                    <div class="form-group mb-2 text-center">
+                        <label for="email" class="col-form-label col-form-label-lg pt-0 pb-0">Email</label>
+                        <input type="text" class="form-control" th:field="${user.email}" id="email" />
+                    </div>
+                    <div class="form-group mb-2 text-center">
+                        <label for="email" class="col-form-label col-form-label-lg pt-0 pb-0">Username</label>
+                        <input type="text" class="form-control" th:field="${user.username}" id="username" />
+                    </div>
+                    <div class="form-group mb-2 text-center">
+                        <label for="password" class="col-form-label col-form-label-lg pt-0 pb-0">Password</label>
+                        <input type="password" class="form-control" th:field="${user.password}" id="password" />
+                    </div>
+                    <div class="form-group mb-2 text-center">
+                        <label for="roles" class="col-form-label col-form-label-lg pt-0 pb-0">Role</label>
+                        <select class="form-control" multiple id="roles" name="roles">
+                            <th:block th:each="role : ${roles}">
+                                <option th:value="${role.id}" th:text="${role.role}"></option>
+                            </th:block>
+                        </select>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </div>
+        </div>
+        </form>
+
+    </div>
+</div>
